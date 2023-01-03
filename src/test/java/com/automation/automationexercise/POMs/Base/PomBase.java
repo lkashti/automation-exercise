@@ -2,6 +2,7 @@ package com.automation.automationexercise.POMs.Base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public abstract class PomBase implements Pom {
     private final WebDriver _driver;
@@ -25,6 +26,12 @@ public abstract class PomBase implements Pom {
 
     protected void setElementText(By element, String text) {
         _driver.findElement(element).sendKeys(text);
+    }
+
+    protected void setDropDownOption(By element, By option) {
+        WebElement dropdown = _driver.findElement(element);
+        dropdown.click();
+        dropdown.findElement(option).click();
     }
 
     protected abstract String getPageUrl();
