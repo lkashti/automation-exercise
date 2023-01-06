@@ -1,8 +1,10 @@
 package com.automation.automationexercise.Tests.TutorialsNinja.Account;
 
 import com.automation.automationexercise.POMs.Base.AddAddressPom;
+import com.automation.automationexercise.POMs.Base.AddressPom;
 import com.automation.automationexercise.POMs.Base.LoginPom;
 import com.automation.automationexercise.POMs.TutorialsNinja.TutorialsNinjaAddAddressPom;
+import com.automation.automationexercise.POMs.TutorialsNinja.TutorialsNinjaAddressPom;
 import com.automation.automationexercise.POMs.TutorialsNinja.TutorialsNinjaLoginPom;
 import org.junit.After;
 import org.junit.Before;
@@ -12,15 +14,21 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class TutorialsNinjaAccountTests {
+import java.io.Console;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class TutorialsNinjaAddAddressTests {
     private final WebDriver _driver;
     private final LoginPom _loginPom;
     private final AddAddressPom _addAddressPom;
+    private final AddressPom _addressPom;
 
-    public TutorialsNinjaAccountTests() {
+    public TutorialsNinjaAddAddressTests() {
         _driver = new ChromeDriver();
-        _addAddressPom = new TutorialsNinjaAddAddressPom(_driver);
         _loginPom = new TutorialsNinjaLoginPom(_driver);
+        _addAddressPom = new TutorialsNinjaAddAddressPom(_driver);
+        _addressPom = new TutorialsNinjaAddressPom(_driver);
     }
 
     @Before
@@ -35,6 +43,8 @@ public class TutorialsNinjaAccountTests {
 
     @After
     public void tearDown() {
+        _addressPom.deleteLastAddress();
+        assertThat(_addressPom.getLastAddressHTML()).isEqualTo("user name<br>aaa<br>bbb 12345<br>Cardiff<br>United Kingdom");
         _driver.quit();
     }
 
@@ -49,6 +59,8 @@ public class TutorialsNinjaAccountTests {
         _addAddressPom.pickRegionDropDownItem(By.xpath("//option[. = 'Aberdeen']"));
         _addAddressPom.clickContinue();
 
-        // Assert
+        assertThat(_addressPom.getLastAddressHTML()).isEqualTo("User Name<br>Address<br>City 00000<br>Aberdeen<br>United Kingdom");
+
+
     }
 }
