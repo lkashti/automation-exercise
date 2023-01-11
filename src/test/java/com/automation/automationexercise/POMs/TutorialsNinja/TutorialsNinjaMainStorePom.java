@@ -35,10 +35,10 @@ public class TutorialsNinjaMainStorePom extends PomBase implements StorePom<Tuto
         _appleCinema30Item = By.cssSelector("#content > div.row > div:nth-child(3) > div > div.caption > h4 > a");
         _canonEos5DItem = By.cssSelector("#content > div.row > div:nth-child(4) > div > div.caption > h4 > a");
 
-        _macbookPriceText = By.xpath("//*[@id=\"content\"]/div[2]/div[1]/div/div[2]/p[2]/text()");
-        _iphonePriceText = By.xpath("//*[@id=\"content\"]/div[2]/div[2]/div/div[2]/p[2]/text()");
-        _appleCinemaPriceText = By.xpath("//*[@id=\"content\"]/div[2]/div[3]/div/div[2]/p[2]/span[1]");
-        _canonEos5DPriceText = By.xpath("//*[@id=\"content\"]/div[2]/div[4]/div/div[2]/p[2]/span[1]");
+        _macbookPriceText = By.xpath("/html/body/div[2]/div/div/div[2]/div[1]/div/div[2]/p[2]");
+        _iphonePriceText = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div/div[2]/p[2]");
+        _appleCinemaPriceText = By.xpath("/html/body/div[2]/div/div/div[2]/div[3]/div/div[2]/p[2]/span[1]");
+        _canonEos5DPriceText = By.xpath("/html/body/div[2]/div/div/div[2]/div[4]/div/div[2]/p[2]/span[1]");
 
         _macbookAddToCartButton = By.cssSelector("#content > div.row > div:nth-child(1) > div > div.button-group > button:nth-child(1)");
         _iphoneAddToCartButton = By.cssSelector("#content > div.row > div:nth-child(2) > div > div.button-group > button:nth-child(1)");
