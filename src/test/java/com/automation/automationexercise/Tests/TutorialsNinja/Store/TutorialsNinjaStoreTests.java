@@ -2,7 +2,9 @@ package com.automation.automationexercise.Tests.TutorialsNinja.Store;
 
 import com.automation.automationexercise.Enums.TutorialsNinja.TutorialsNinjaCurrency;
 import com.automation.automationexercise.Enums.TutorialsNinja.TutorialsNinjaStoreItem;
+import com.automation.automationexercise.POMs.Base.LoginPom;
 import com.automation.automationexercise.POMs.Base.StorePom;
+import com.automation.automationexercise.POMs.TutorialsNinja.TutorialsNinjaLoginPom;
 import com.automation.automationexercise.POMs.TutorialsNinja.TutorialsNinjaMainStorePom;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,10 +19,12 @@ public class TutorialsNinjaStoreTests {
 
     private final WebDriver _driver;
     private final StorePom<TutorialsNinjaStoreItem> _storePom;
+    private final LoginPom _loginPom;
 
     public TutorialsNinjaStoreTests() {
         _driver = new ChromeDriver();
         _storePom = new TutorialsNinjaMainStorePom(_driver);
+        _loginPom = new TutorialsNinjaLoginPom(_driver);
     }
 
     @Before
