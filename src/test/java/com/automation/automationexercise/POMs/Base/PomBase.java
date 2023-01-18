@@ -54,6 +54,12 @@ public abstract class PomBase implements Pom {
         return _driver.findElements(element);
     }
 
+    protected WebElement getRowCell(By rowSelector, int cellNum) {
+        var rowElement = _driver.findElement(rowSelector);
+        var cellSelector = String.format("../../td[%d]", cellNum);
+        return rowElement.findElement(By.xpath(cellSelector));
+    }
+
     protected abstract String getPageUrl();
 
     private By getCurrencySetButton(TutorialsNinjaCurrency currency) {
